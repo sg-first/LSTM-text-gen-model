@@ -165,8 +165,6 @@ with tf.Session(graph=train_graph) as sess:
 
             # 打印训练信息
             if (epoch_i * len(batches) + batch_i) % show_every_n_batches == 0:
-                print('Epoch {:>3} Batch {:>4}/{}   train_loss = {:.3f}'.
-                    format(batch_i,len(batches),train_loss))
                 print('Epoch='+str(batch_i)+' Batch='+str(len(batches))+' train_loss='+str(train_loss))
 
     # 保存模型
