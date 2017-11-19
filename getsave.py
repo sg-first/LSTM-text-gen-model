@@ -15,7 +15,7 @@ def get_tensors(loaded_graph):
 def pick_word(probabilities, int_to_vocab):
     chances = []
     for idx, prob in enumerate(probabilities):
-        if prob >= 0.05:
+        if prob.any() >= 0.05: #fix: 无法确定的含义
             chances.append(int_to_vocab[idx])
     rand = np.random.randint(0, len(chances))
     return str(chances[rand])

@@ -179,7 +179,7 @@ helper.save_params((seq_length, save_dir)) # 将使用到的变量保存起来�
 gen_length = 1000
 
 # 文章开头的字，指定一个即可，这个字必须是在训练词汇列表中的
-prime_word = '正'
+prime_word = '希'
 
 import getsave
 
@@ -205,7 +205,7 @@ with tf.Session(graph=loaded_graph) as sess:
             [probs, final_state],
             {input_text: dyn_input, initial_state: prev_state})
 
-        pred_word = getsave.pick_word(probabilities[dyn_seq_length - 1], helper.int_to_vocab)
+        pred_word = getsave.pick_word(probabilities[0][dyn_seq_length - 1], helper.int_to_vocab)
 
         gen_sentences.append(pred_word)
 

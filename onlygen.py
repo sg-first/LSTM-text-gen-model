@@ -3,14 +3,14 @@ import getsave
 import numpy as np
 
 # 训练步长
-seq_length = 30
+seq_length = 15
 
 # 使用训练好的模型来生成自己的小说
 # 生成文本的长度
 gen_length = 1000
 
 # 文章开头的字，指定一个即可，这个字必须是在训练词汇列表中的
-prime_word = '正'
+prime_word = '找'
 
 loaded_graph = tf.Graph()
 with tf.Session(graph=loaded_graph) as sess:
@@ -34,7 +34,7 @@ with tf.Session(graph=loaded_graph) as sess:
             [probs, final_state],
             {input_text: dyn_input, initial_state: prev_state})
 
-        pred_word = getsave.pick_word(probabilities[dyn_seq_length - 1], getsave.int_to_vocab)
+        pred_word = getsave.pick_word(probabilities[0][dyn_seq_length - 1], getsave.int_to_vocab)
 
         gen_sentences.append(pred_word)
 
