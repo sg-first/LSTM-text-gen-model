@@ -15,10 +15,10 @@ else:
     print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
 
 # 训练循环次数
-num_epochs = 200
+num_epochs = 500
 
 # batch大小
-batch_size = 64
+batch_size = 128
 
 # lstm层中包含的unit个数
 rnn_size = 512
@@ -27,7 +27,7 @@ rnn_size = 512
 embed_dim = 512
 
 # 训练步长
-seq_length = 30
+seq_length = 15
 
 # 学习率
 learning_rate = 0.003
